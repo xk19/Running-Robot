@@ -1,0 +1,23 @@
+# 可视化
+cv2.imshow("", img)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#保存图像并显示
+cv2.imwrite('temp.jpg', img)
+display(Image('temp.jpg'))
+
+#调取图上某点的信息
+def getpos(event,x,y,flags,param):
+    if event == cv2.EVENT_LBUTTONDOWN:
+        print(img[y,x])
+cv2.imshow('image', img)
+cv2.setMouseCallback('image',getpos)
+cv2.waitKey()
+
+#图像拼接
+res = np.hstack(img1, img2, img3)
+cv2.imshow('image',res)
+
+#图像复制
+img2 = img.copy()

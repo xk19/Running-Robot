@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name_space" default="/"/>
+    <group ns="$(arg name_space)">
+        <arg name="base_frame"  default="body_link"/>
+        <include file="$(find hiwonder_servo_controllers)/launch/controller_manager.launch"/>
+
+        <include file="$(find hiwonder_servo_controllers)/launch/joint_states_publisher.launch">
+            <arg name="base_frame"  value="$(arg base_frame)"/>
+        </include>
+    </group>
+</launch>

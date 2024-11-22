@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <!--舵机驱动(servo driver)-->
+    <include file="$(find hiwonder_servo_controllers)/launch/start.launch"/>
+
+    <node name="servo_demo" pkg="ainex_tutorial" type="servo_demo.py" required="true" output="screen"/>
+</launch>
+

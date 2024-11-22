@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <!--舵机驱动(servo driver)-->
+    <include file="$(find hiwonder_servo_controllers)/launch/start.launch"/>
+
+    <!--步态控制节点-->
+    <include file="$(find ainex_kinematics)/launch/ainex_controller.launch"/>
+</launch>
+

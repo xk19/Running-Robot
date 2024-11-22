@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--颜色追踪-->
+<launch>
+    <arg name="color"  default="red"/>
+    <arg name="start"  default="true"/>
+
+    <!--舵机驱动(servo driver)-->
+    <include file="$(find hiwonder_servo_controllers)/launch/start.launch"/>
+
+    <!--初始姿态-->
+    <node name="init_pose" pkg="ainex_bringup" type="init_pose.py" required="true" output="screen">
+        <rosparam file="$(find ainex_bringup)/config/init_pose.yaml" command="load"/>
+    </node>
+
+    <!--颜色识别节点-->
+    <include file="$(find ainex_example)/scripts/color_detection/color_detection_node.launch"/>
+
+    <!--颜色追踪-->
+    <node pkg="ainex_example" type="color_track_node.py" name="color_track" output="screen">
+        <param name="start"  value="$(arg start)"/>
+        <param name="color"  value="$(arg color)"/>
+    </node>
+</launch>

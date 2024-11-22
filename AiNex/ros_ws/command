@@ -1,0 +1,38 @@
+#1 关闭自启功能
+sudo systemctl disable start_app_node.service 
+
+#2 停止自启功能
+sudo systemctl stop start_app_node.service
+
+#3 开启自启功能
+sudo systemctl enable start_app_node.service
+
+#4 开启自启功能
+sudo systemctl start start_app_node.service
+
+#5 重启自启功能 
+sudo systemctl restart start_app_node.service
+
+#6 查看后台自启状态
+sudo systemctl status start_app_node.service
+
+#7 颜色检测示例
+python3 /home/ubuntu/ros_ws/src/ainex_example/scripts/color_detection/color_detection.py
+
+#8 颜色追踪示例
+roslaunch ainex_example color_track_node.launch
+
+#9 踢球示例
+roslaunch ainex_example kick_ball_node.launch
+
+#10 巡线示例
+roslaunch ainex_example visual_patrol_node.launch
+
+#11 扩展板使用示例
+roscd ainex_tutorial/scripts/board/
+
+#12 舵机使用示例
+roscd ainex_tutorial/scripts/serial_servo
+
+#13 步态使用示例
+roscd ainex_tutorial/scripts/gait_controi

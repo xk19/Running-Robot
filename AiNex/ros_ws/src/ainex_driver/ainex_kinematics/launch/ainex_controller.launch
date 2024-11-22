@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+    <!--舵机驱动(servo driver)-->
+    <include file="$(find hiwonder_servo_controllers)/launch/start.launch"/>
+
+    <!--初始姿态-->
+    <node name="init_pose" pkg="ainex_bringup" type="init_pose.py" required="true" output="screen" launch-prefix="taskset -c 3">
+        <rosparam file="$(find ainex_bringup)/config/init_pose.yaml" command="load"/>
+    </node>
+
+    <node pkg="ainex_kinematics" type="ainex_controller.py" name="ainex_controller" output="screen" launch-prefix="taskset -c 3"/>
+</launch>

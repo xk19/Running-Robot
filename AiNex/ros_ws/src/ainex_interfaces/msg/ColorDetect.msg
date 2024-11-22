@@ -1,0 +1,9 @@
+string color_name
+int16[] lab_min
+int16[] lab_max
+bool use_name
+string detect_type
+ainex_interfaces/ROI roi
+ainex_interfaces/LineROI line_roi
+float64 min_area
+float64 max_area
